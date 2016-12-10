@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>requirejs</title>
+<!-- seajs 和 requirejs 的区别：
+seajs: 
+CMD
+index中引入主模块时，如果是一个模块，可以不用数组的形式，后面function的参数是引入模块的返回值。module.exports来暴露
+执行顺序： 来到引入模块中，先执行内部代码
+返回值： module.exports
+requirejs:
+AMD 
+index中引入主模块时，必须用数组形式。后面function的参数是引入模块的返回值return，
+执行顺序：来到引入模块，优先执行引入模块
+返回值：return 来暴露 -->
+
+</head>
+<body>
+<!-- 先执行引入模块 -->
+<!-- 引入模块先于当前模块执行 -->
+<!-- 并且 返回返回值 -->
+    <!-- 1.引包 -->
+    <script src="./require.js"></script>
+    <script>
+        // 2.载入主模块
+        // 第一个参数，用来引用其他模块，必需是数组
+        requirejs(['./chushi'],function(){
+            console.log('找来厨师做饭')
+        })
+    </script>
+</body>
+</html>
